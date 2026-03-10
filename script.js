@@ -190,12 +190,19 @@ wheelSlices.forEach((slice, i) => {
     el.style.position = 'absolute';
     el.style.top = '50%';
     el.style.left = '50%';
-    // Rotate the slice pivot, then translate it to the edge of the circle (e.g. 150px out)
-    el.style.transform = `translate(-50%, -50%) rotate(${i * sliceAngle + sliceAngle/2}deg) translateY(-180px)`;
-    el.style.textAlign = 'center';
-    el.style.width = '140px'; 
     
-    el.style.fontSize = '1.0rem';
+    // Translate text roughly 35% of the wheel width outwards
+    el.style.transform = `translate(-50%, -50%) rotate(${i * sliceAngle + sliceAngle/2}deg) translateY(-35cqw)`;
+    el.style.textAlign = 'center';
+    
+    // Instead of a rigid 140px width which overlaps on mobile, define relative scalable width
+    // Making it exactly 35% of container width keeps it completely inside its slice bounds
+    el.style.width = '35cqw'; 
+    el.style.padding = '0 5px';
+    
+    // Responsive font scaling clamped tightly so long strings ("A day where you choose everything") 
+    // never break their max bounds.
+    el.style.fontSize = 'clamp(0.45rem, 3.2cqw, 1.05rem)';
     el.style.fontWeight = '800';
     el.style.color = 'var(--text-main)'; 
     el.style.lineHeight = '1.2';
