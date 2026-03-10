@@ -233,7 +233,7 @@ footer {
 .page-title { font-size: 2.8rem; text-align: center; margin-bottom: 1rem; color: var(--text-highlight); }
 
 /* ====== WHEEL ====== */
-.wheel-container { position: relative; width: 500px; height: 500px; max-width: 90vw; max-height: 90vw; margin: 2rem auto; border-radius: 50%; padding: 10px; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+.wheel-container { position: relative; width: 500px; height: 500px; max-width: 90vw; max-height: 90vw; margin: 2rem auto; border-radius: 50%; padding: 10px; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); container-type: size; }
 .pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 2.5rem; color: var(--text-highlight); z-index: 10; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 .wheel { width: 100%; height: 100%; border-radius: 50%; position: relative; overflow: hidden; transition: transform 4s cubic-bezier(0.17, 0.67, 0.12, 0.99); background: conic-gradient(from 0deg, var(--pink-blush) 0deg 45deg, var(--pink-ultra-light) 45deg 90deg, #ffe0e9 90deg 135deg, white 135deg 180deg, var(--pink-blush) 180deg 225deg, var(--pink-ultra-light) 225deg 270deg, #ffe0e9 270deg 315deg, white 315deg 360deg); border: 4px solid var(--pink-main); }
 /* Note: actual slice text gets injected via JS over the wheel */
