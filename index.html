@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Bhoomi ❤️</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💗</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background music & toggle -->
+    <audio id="bgMusic" loop autoplay src="assets/music.mp3"></audio>
+    <button id="musicToggle" class="music-toggle bounce" aria-label="Toggle Music">
+        <span class="icon">🎵</span> <span class="status">Play Music</span>
+    </button>
+
+    <!-- Floating Hearts Container (Global) -->
+    <div id="hearts-container"></div>
+
+    <!-- Password Screen -->
+    <div id="password-screen" class="screen active">
+        <div class="glassmorphism p-2 text-center" style="max-width: 400px; width: 90%;">
+            <h2 class="font-title page-title">A Little Secret 🌸</h2>
+            <p class="subtitle mb-2">Please enter the password to view your world.</p>
+            <input type="password" id="passwordInput" placeholder="Password..." style="padding: 10px; width: 100%; border-radius: 10px; border: 2px solid var(--pink-main); margin-bottom: 15px; font-family: 'Nunito';">
+            <button id="passwordBtn" class="btn primary-btn" style="width: 100%;">Unlock ❤️</button>
+            <p id="passwordError" class="hidden text-sm" style="color: red; margin-top: 10px;">Incorrect password.</p>
+        </div>
+    </div>
+
+    <!-- Intro Overlay (Heart Explosion) -->
+    <div id="intro-screen" class="screen hidden">
+        <h1 class="intro-title reveal-text">For Bhoomi ❤️</h1>
+        <div id="explosion-container"></div>
+    </div>
+
+    <!-- Main Navigation / App Container -->
+    <main id="app-container" class="hidden">
+
+        <!-- 1. Homepage -->
+        <section id="home" class="page active px-1">
+            <header class="hero">
+                <h1 class="font-title main-title text-glow">For Bhoomi ❤️</h1>
+                <p class="subtitle fade-in">A little world made just for you.</p>
+            </header>
+
+            <div class="media-grid">
+                <!-- Video Placeholders -->
+                <div class="media-card video-card glassmorphism">
+                    <video src="assets/2026_Bhoomi.mp4" controls playsinline></video>
+                </div>
+                
+                <div class="media-card video-card glassmorphism">
+                    <video src="assets/I_found_her.mp4" controls playsinline></video>
+                </div>
+
+                <!-- Photo Placeholders (Polaroid Style) -->
+                <div class="polaroid tilt-left drop-shadow">
+                    <img src="assets/image0.jpg" alt="Us" />
+                    <p class="caption font-handwriting">My favorite person.</p>
+                </div>
+
+                <div class="polaroid tilt-right drop-shadow">
+                    <img src="assets/image1.jpg" alt="Us" />
+                    <p class="caption font-handwriting">Me with my Maalkin~!</p>
+                </div>
+            </div>
+
+            <div class="cta-container">
+                <button id="exploreBtn" class="btn primary-btn pulse-glow" data-target="menu">Explore My Love For You 💗</button>
+            </div>
+            
+        </section>
+
+        <!-- Menu Navigation Page (Appears after "Explore") -->
+        <section id="menu" class="page fade">
+            <h2 class="font-title page-title">Our Little World 🌸</h2>
+            <div class="menu-grid">
+                <button class="nav-btn" data-target="wheel">🎡 Spin The Wheel</button>
+                <button class="nav-btn" data-target="reasons">💗 Why I Love You</button>
+                <button class="nav-btn" data-target="open-when">💌 Open When...</button>
+                <button class="nav-btn" data-target="quiz">💞 Memory Quiz</button>
+                <button class="nav-btn" data-target="daily-msg">✨ Daily Message</button>
+                <button class="nav-btn" data-target="future">💕 Future With You</button>
+                <button class="nav-btn" data-target="hug">🤗 Virtual Hug</button>
+                <button class="nav-btn" data-target="counter">⏳ Love Counter</button>
+            </div>
+            <button class="back-link mt-2" data-target="home">Back to Home</button>
+        </section>
+
+        <!-- 2. Spin The Wheel -->
+        <section id="wheel" class="page fade">
+            <h2 class="font-title page-title">Spin The Love Wheel 🎡💖</h2>
+            <p class="subtitle">Wherever it lands, that’s your prize.</p>
+            
+            <div class="wheel-container glassmorphism">
+                <div class="pointer">▼</div>
+                <div class="wheel" id="spinning-wheel">
+                    <!-- Slices generated by JS -->
+                </div>
+            </div>
+            <button id="spinBtn" class="btn secondary-btn cute-shadow">Spin It!</button>
+
+            <!-- Popup -->
+            <div id="wheel-popup" class="popup hidden glass-modal">
+                <div class="popup-content">
+                    <h3 class="font-title pop-title">You won: <br><span id="prize-result" class="highlight-text"></span></h3>
+                    <p id="prize-desc" class="pop-desc"></p>
+                    <button class="btn small-btn close-popup">Yay! 🥰</button>
+                </div>
+            </div>
+            <button class="back-link" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 3. Why I Love You -->
+        <section id="reasons" class="page fade">
+            <h2 class="font-title page-title">Reasons I Love You 💗</h2>
+            <p class="subtitle">Hover and click to reveal my feelings.</p>
+            <div class="cards-grid" id="reasons-grid">
+                <!-- Cards generated by JS -->
+            </div>
+            <button class="back-link" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 4. Open When -->
+        <section id="open-when" class="page fade">
+            <h2 class="font-title page-title">Open When… 💌</h2>
+            <p class="subtitle">Digital letters for every mood.</p>
+            <div class="envelope-grid" id="envelopes-grid">
+                <!-- Envelopes generated by JS -->
+            </div>
+            <button class="back-link" data-target="menu">Back to Menu</button>
+            
+            <!-- Envelope Modal -->
+            <div id="letter-popup" class="popup hidden glass-modal">
+                <div class="popup-content letter-paper drop-shadow">
+                    <h3 class="font-title pop-title" id="letter-title">Open When...</h3>
+                    <p id="letter-body" class="font-handwriting letter-text"></p>
+                    <button class="btn small-btn close-popup letter-btn">Close 🌸</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Memory Quiz -->
+        <section id="quiz" class="page fade">
+            <h2 class="font-title page-title">How Well Do You Know Us? 💞</h2>
+            <div class="quiz-container glassmorphism" id="quiz-box">
+                <p id="question-text" class="question-text fade-in">Loading question...</p>
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Buttons generated by JS -->
+                </div>
+            </div>
+            
+            <!-- Result State -->
+            <div id="quiz-result" class="hidden text-center mt-2">
+                <h3 class="font-title highlight-text score-text" id="final-score">Your Score: 0/5</h3>
+                <p class="quiz-msg drop-in">No matter your score...<br>you’re still my favorite person in the universe.</p>
+                <button id="retryQuiz" class="btn small-btn mt-1">Play Again</button>
+            </div>
+            <button class="back-link" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 6. Daily Love Generator -->
+        <section id="daily-msg" class="page fade">
+            <h2 class="font-title page-title">Today's Love Message ❤️</h2>
+            <div class="generator-container text-center">
+                <div id="daily-text-box" class="glassmorphism hidden floating-animation">
+                    <p id="daily-text" class="font-handwriting large-handwriting"></p>
+                </div>
+                <button id="generatorBtn" class="btn primary-btn sparkles-btn pulse-glow mt-2">Give Me Today's Message ✨</button>
+            </div>
+            <button class="back-link mt-2" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 7. Future With You -->
+        <section id="future" class="page fade">
+            <h2 class="font-title page-title">Things I Want To Do With You 💕</h2>
+            <div class="checklist-container form-glass" id="future-list">
+                <!-- Checklist generated by JS -->
+            </div>
+            <button class="back-link mt-2" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 8. Virtual Hug -->
+        <section id="hug" class="page fade text-center">
+            <h2 class="font-title page-title">Need A Hug?</h2>
+            
+            <button id="hugBtn" class="huge-hug-btn breathe-animation">
+                <span class="hug-emoji">🤗</span>
+                <br>Click If You Need A Hug
+            </button>
+            
+            <p id="hug-message" class="hidden subtitle mt-2 font-handwriting pop-in">
+                "Imagine me hugging you right now.<br>And not letting go for a while."
+            </p>
+
+            <button class="back-link mt-2" data-target="menu">Back to Menu</button>
+        </section>
+
+        <!-- 9. Love Counter -->
+        <section id="counter" class="page fade text-center">
+            <h2 class="font-title page-title">Our Time Together ⏳❤️</h2>
+            
+            <div class="counter-box glassmorphism pulse-slow">
+                <p class="counter-label">We've shared...</p>
+                <div class="time-display flex-center text-glow" id="time-display">
+                    <!-- Injected by JS -->
+                </div>
+                <p class="counter-label text-sm mt-1">of pure memories.</p>
+            </div>
+
+            <p class="subtitle mt-1 font-handwriting">"And every single day with you is my favorite." <span class="heartbeat inline-block">💓</span></p>
+
+            <button class="back-link mt-2" data-target="menu">Back to Menu</button>
+        </section>
+
+         <!-- 10. Hidden Easter Egg -->
+         <section id="secret" class="page fade text-center hidden">
+            <div class="secret-container soft-glow py-3">
+                <h2 class="font-title page-title glow-white">You Mean Everything To Me</h2>
+                <div class="secret-message font-handwriting glassmorphism p-2 text-large">
+                    <p>If you’re seeing this, it means you discovered the hidden part of my little love world.</p>
+                    <p>Just like this page, my feelings for you are something special that not everyone gets to see.</p>
+                    <p>Thank you for existing in my life.</p>
+                </div>
+                <div class="sparkles-container"></div>
+            </div>
+            <button class="back-link white-text mt-2" data-target="menu">Leave Secret Place</button>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="fade-in">
+        <p>Made with love by Nipun for <span class="highlight-text">Bhoomi</span> 💗</p>
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+
+    <!-- Canvas for Confetti/Firework (Intro & Global effects) -->
+    <canvas id="fxCanvas"></canvas>
+</body>
+</html>
