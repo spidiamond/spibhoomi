@@ -359,7 +359,7 @@ const quizData = [
     { q: "Who texts first most of the time?", options: ["Me", "You"], a: 1 }, 
     { q: "Who is more dramatic?", options: ["Me", "You", "Both equally"], a: 2 },
     { q: "Who says “I miss you” more?", options: ["Me", "You"], a: 0 },
-    { q: "Who falls asleep first on calls?", options: ["Me", "You", "It changes"], a: 1 },
+    { q: "Who calls by nicknames the most?", options: ["Me", "You", "It changes"], a: 1 },
     { q: "Who loves the other more?", options: ["Me", "You", "Infinity"], a: 2 } 
 ];
 let bgCurrentQ = 0;
